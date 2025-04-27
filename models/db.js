@@ -12,7 +12,7 @@ module.exports = testEnv => {
     process.exit(126)
   }
 
-  mongoose.connect('mongodb://localhost/' + dbName, {
+  mongoose.connect(dbURL + dbName, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
