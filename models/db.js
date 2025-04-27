@@ -4,6 +4,14 @@ const settings = require('../settings');
 module.exports = testEnv => {
   const dbName = settings.db + (testEnv ? '-test' : '');
 
+  const dbURL = process.env.DB_URL
+  if (dbURL){
+    console.log('get db url')
+  }else{
+    console.log('please set db url')
+    process.exit(126)
+  }
+
   mongoose.connect('mongodb://localhost/' + dbName, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
